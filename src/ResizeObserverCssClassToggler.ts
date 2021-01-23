@@ -1,5 +1,5 @@
 /** Class representing the Resize Observer Component. */
-export class Rob {
+export class ResizeObserverCssClassToggler {
   private selector: string = '';
   private resizeObserver: any;
   private elements?: NodeList;
@@ -64,7 +64,7 @@ export class Rob {
    * Adds or removes all the relevant classes depending on
    * the size of the observed element which are defined by
    * data-rob-{breakpoint}="{css classes}"
-   * @param {array} entry - the observed elements.
+   * @param {ResizeObserverEntry} entry - the observed elements.
    */
   setClasses(entry: ResizeObserverEntry) {
     let obj = entry.target as HTMLElement;
@@ -111,6 +111,9 @@ export class Rob {
       diffClasses
     ); */
 
+    /*
+     * if there are classes from before remove them
+     */
     if (diffClasses.length) {
       entry.target.classList.remove(...diffClasses);
     }

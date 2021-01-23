@@ -1,0 +1,105 @@
+.rob {
+  background-color: red;
+  border: 2px solid white;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  transition: all var(--animation-duration) ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.rob:after {
+  content: '0';
+  position: absolute;
+  right: 0;
+  padding: 6px 12px;
+  background-color: black;
+  border: 2px solid white;
+  box-sizing: border-box;
+  color: white;
+  box-shadow: -3px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.rob--320 {
+  background-color: green;
+}
+
+.rob--320:after {
+  content: '320';
+}
+
+.rob--480 {
+  background-color: blue;
+}
+
+.rob--480:after {
+  content: '480';
+}
+
+.rob--768 {
+  background-color: orange;
+}
+
+.rob--768:after {
+  content: '768';
+}
+
+.rob--1024 {
+  background-color: rgba(183, 226, 29, 0.87);
+}
+
+.rob--1024:after {
+  content: '1024';
+}
+
+.rob__item {
+  width: 50%;
+  height: 50%;
+  transition: all var(--animation-duration) ease-out;
+  background-color: burlywood;
+  border: 1px solid white;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.rob__item:after {
+  content: '0';
+  position: absolute;
+  left: -1px;
+  padding: 6px 12px;
+  background-color: black;
+  border: 1px solid white;
+  box-sizing: border-box;
+  color: white;
+  box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.rob__item--320 {
+  background-color: darkseagreen;
+}
+
+.rob__item--320:after {
+  content: '320';
+}
+
+.rob__item--360 {
+  background-color: rgb(199, 161, 36);
+}
+
+.rob__item--360:after {
+  content: '360';
+}
+
+.rob__item--420 {
+  background-color: rgb(109, 99, 192);
+}
+
+.rob__item--420:after {
+  content: '420';
+}

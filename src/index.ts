@@ -1,3 +1,3 @@
-import { Rob } from './ResizeObserverCSS';
+import { ResizeObserverCssClassToggler } from './ResizeObserverCssClassToggler';
 
-const rob = new Rob();
+const rob = new ResizeObserverCssClassToggler();
