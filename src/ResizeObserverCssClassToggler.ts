@@ -1,4 +1,9 @@
-/** Class representing the Resize Observer Component. */
+/**
+ * ResizeObserver CSS Class Toggler
+ * @param {string} selector - query selector for all the elments to be observed.
+ * @param {ResizeObserver} resizeObserver - ResizeObserver instance.
+ * @param {NodeList} elements - the observed elements.
+ */
 export class ResizeObserverCssClassToggler {
   private selector: string = '';
   private resizeObserver: any;
@@ -15,15 +20,17 @@ export class ResizeObserverCssClassToggler {
    */
   init() {
     if (window.ResizeObserver) {
-      this.selector = '[data-rob-0]';
+      this.selector = '[data-rob]';
 
       // grab all the resize observer elements
       this.elements = document.querySelectorAll<HTMLElement>(this.selector);
 
       if (this.elements.length) {
         this.resizeObserver = new ResizeObserver((entries) => {
-          for (let entry of entries) {
-            this.setClasses(entry);
+          if (entries.length) {
+            for (let entry of entries) {
+              this.setClasses(entry);
+            }
           }
 
           document.getElementsByTagName('body')[0].classList.remove('loading');
@@ -33,7 +40,7 @@ export class ResizeObserverCssClassToggler {
           this.resizeObserver.observe(element, { box: 'border-box' });
         });
       } else {
-        alert('No elements found! \n Check the correct syntax: [data-rob-0]');
+        alert('No elements found! \n Check the correct syntax: [data-rob]');
       }
     } else {
       document.getElementsByTagName('body')[0].classList.remove('loading');
@@ -83,7 +90,7 @@ export class ResizeObserverCssClassToggler {
     if (robs.length) {
       for (let [key, value] of robs) {
         // get the breakpoint of the entry: [data-rob-320]
-        const breakpoint = key.split('-')[1];
+        const breakpoint = key.split('-')[1] ? key.split('-')[1] : '0';
 
         /*
          * if the width of the element is bigger than the breakpoint
